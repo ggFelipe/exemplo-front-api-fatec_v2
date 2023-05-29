@@ -37,19 +37,15 @@ const Home = () => {
                     <li key={user.id}>
                         Nome: {user.nome} <br></br>CPF: {user.cpf}
 
-                        <Stack align='rigth' spacing='10px'>
+                        <Stack w="auto" align='rigth' spacing='10px'>
 
-                            <Flex pos="fixed" right="1rem" >
+                            <Flex  right="1rem" >
+                            <Spacer />
                                 <IconButton icon={<DeleteIcon />} top="-9" colorScheme="red" size="sm" isLoading={isLoadingDelete} onClick={() => {
                                     if (window.confirm('Deseja excluir o usuário?')) {
-                                        onDeleteUser(user.id)
-                                    }
-                                }}>
+                                        onDeleteUser(user.id)}}}>
                                 </IconButton>
-                                
                                 <IconButton to={`/edit/${user.id}`} icon={<EditIcon />} top="-9" size="sm"></IconButton>
-                                
-
                             </Flex>
                             <Divider borderColor="black" />
                         </Stack>
