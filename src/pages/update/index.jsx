@@ -1,7 +1,7 @@
 import {
     Container, Stack,
     FormControl, FormLabel,
-    Input, Button
+    Input, Button, Box
 } from "@chakra-ui/react"
 
 import { useForm } from 'react-hook-form'
@@ -31,7 +31,7 @@ const UpdateUser = () => {
 
     return (
         <Container>
-            <h1>Cadastrar Usuário</h1>
+            <Box margin={5} fontStyle="revert" >ATUALIZAR INFORMAÇOES DE USUÁRIOS</Box>
             <hr />
             <form onSubmit={handleSubmit(onSubmit)}>
                 {isLoading || !user ? <p>Carregando...</p> : <Stack>
@@ -50,6 +50,10 @@ const UpdateUser = () => {
                     <FormControl id="telefone">
                         <FormLabel>Telefone</FormLabel>
                         <Input defaultValue={user.telefone} type="text" {...register('telefone', { required: true })} />
+                    </FormControl>
+                    <FormControl id="telefone">
+                        <FormLabel>Mensalidade</FormLabel>
+                        <Input defaultValue={user.mensalidade} type="number" {...register('mensalidade', { required: true })} />
                     </FormControl>
 
                     <Button mt={4} colorScheme='teal' type="submit" isLoading={isLoadingUpdate}>

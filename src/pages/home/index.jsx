@@ -31,8 +31,8 @@ const Home = () => {
 
     return (
         <Flex w="100%" h={["163px", "250px", "250px", "335px"]} flexDir="column">
-            <Flex margin={1}>
-                <Box>LISTA DE USUÁRIOS</Box>
+            <Flex margin={5}>
+                <Box fontStyle="revert" >LISTA DE USUÁRIOS</Box>
                 <Spacer />
                 <Box>
                     <Link to='/create'><IconButton top="auto" icon={<AddIcon />} colorScheme="green" size="sm"></IconButton></Link>
@@ -43,7 +43,7 @@ const Home = () => {
             {isError && <p>{error.message}</p>}
             <ul>
                 <TableContainer>
-                    <Table size='sm'>
+                    <Table bgColor="orange.400" variant="striped" size='sm'>
 
                         <Thead>
                             <Tr>
@@ -56,32 +56,29 @@ const Home = () => {
                             </Tr>
                         </Thead>
                         <Tbody>
-
                             {users?.map((user) => (
-                                <li key={user.id}>
-                                    <Tr>
-                                        <Td>{user.nome}</Td>
-                                        <Td>{user.cpf}</Td>
-                                        <Td>{user.endereco}</Td>
-                                        <Td>{user.telefone}</Td>
-                                        <Td isNumeric>{user.mensalidade}</Td>
-                                    </Tr>
-                                    <Flex right="1rem" >
+                                <Tr>
+                                    <Td>{user.nome}</Td>
+                                    <Td>{user.cpf}</Td>
+                                    <Td>{user.endereco}</Td>
+                                    <Td>{user.telefone}</Td>
+                                    <Td isNumeric>{user.mensalidade}</Td>
+                                    <Td><Flex >
 
                                         <Spacer />
-                                        <IconButton icon={<DeleteIcon />} top="-9" colorScheme="red" size="sm" isLoading={isLoadingDelete} onClick={() => {
+                                        <IconButton icon={<DeleteIcon />}  colorScheme="red" size="sm" isLoading={isLoadingDelete} onClick={() => {
                                             if (window.confirm('Deseja excluir o usuário?')) {
                                                 onDeleteUser(user.id)
                                             }
                                         }}>
                                         </IconButton>
                                         <Link to={`/edit/${user.id}`}>
-                                            <IconButton icon={<EditIcon />} top="-9" size="sm">
+                                            <IconButton icon={<EditIcon />}  size="sm">
                                             </IconButton>
                                         </Link>
 
-                                    </Flex>
-                                </li>
+                                    </Flex></Td>
+                                </Tr>
                             ))}
                         </Tbody>
                     </Table>

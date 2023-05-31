@@ -8,6 +8,7 @@ import Home from './pages/home'
 import Sobre from './pages/sobre'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import CreateUser from './pages/create'
+import Login from './pages/login'
 import UpdateUser from './pages/update'
 import BannerA from './pages/components/BannerAcademia'
 
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <><HomeHeader /><BannerA/><Home /></>,
+  },
+  {
+    path: "/login",
+    element: <><HomeHeader /><Login /></>,
   },
   {
     path: "/create",
