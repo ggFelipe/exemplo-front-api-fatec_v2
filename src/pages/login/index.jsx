@@ -1,8 +1,18 @@
-import { Box, Button, Card, CardBody, Center, FormLabel, HStack, Heading, Input, Stack, VStack, FormControl } from "@chakra-ui/react";
+import { useUsers } from "../../hooks/useUsers"
+import { useForm } from 'react-hook-form'
+import { useParams } from 'react-router-dom';
+import { useUser } from "../../hooks/useUsers";
+import {
+    Box, Button, Card, CardBody, Center, FormLabel,
+    HStack, Heading, Input,
+    Stack, VStack, FormControl
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { Text } from "@chakra-ui/react";
 
-function Login() {
+const Login = () => {
+
+
     return (
         <Box>
             <Center>
@@ -16,14 +26,14 @@ function Login() {
                                 <Stack>
                                     <FormControl>
                                         <FormLabel textColor='black' size='sm'>Usuario</FormLabel>
-                                        <Input type="text" bg='white' borderColor='#d8dee4' size='sm' borderRadius='6px' />
+                                        <Input id="user" type="text" textColor='black' bg='white' borderColor='#d8dee4' size='sm' borderRadius='6px' />
                                     </FormControl>
                                     <FormControl>
                                         <HStack justify="space-between">
                                             <FormLabel textColor='black' size='sm'>Senha</FormLabel>
                                             <Button as='a' href="#" variant='link' size='sx' color='#0969da' fontWeight='500'>Esqueceu a senha?</Button>
                                         </HStack>
-                                        <Input type="text" bg='white' borderColor='#d8dee4' size='sm' borderRadius='6px' />
+                                        <Input textColor='black' id="senha" type="text" bg='white' borderColor='#d8dee4' size='sm' borderRadius='6px' />
                                     </FormControl>
                                     <Button bg='#2da44e' color='white' size='sm' _hover={{ bg: '#2c974b' }} _active={{ bg: '#298e46' }}>Logar</Button>
                                 </Stack>

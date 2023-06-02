@@ -4,25 +4,26 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { createBrowserRouter, RouterProvider,} from "react-router-dom"
 import theme from "./styles/theme"
 import HomeHeader from './pages/components/HomeHeader'
-import Home from './pages/home'
+import Userl from './pages/userl'
 import Sobre from './pages/sobre'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import CreateUser from './pages/create'
 import Login from './pages/login'
+import Treinos from './pages/training'
 import UpdateUser from './pages/update'
 import BannerA from './pages/components/BannerAcademia'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <><HomeHeader /><BannerA/><Home /></>,
-  },
-  {
-    path: "/login",
     element: <><HomeHeader /><Login /></>,
   },
   {
-    path: "/create",
+    path: "/home",
+    element: <><HomeHeader /><BannerA/><Userl /></>,
+  },
+  {
+    path: "/user",
     element: <><HomeHeader /><CreateUser /></>,
   },
   {

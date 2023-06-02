@@ -3,7 +3,7 @@ import { HamburgerIcon, SunIcon, MoonIcon } from "@chakra-ui/icons"
 import { Header } from "./Header"
 
 
-function HomeHeader() {
+const HomeHeader= () => {
 
     const { colorMode, toggleColorMode } = useColorMode()
     const isDark = colorMode === "dark"
@@ -71,7 +71,7 @@ function HomeHeader() {
                             colorScheme="teal" 
                             my={5} 
                             w="auto">
-                                <Link href="/">About</Link>
+                                <Link href="/sobre">About</Link>
                             </Button>
 
                     </Flex>
