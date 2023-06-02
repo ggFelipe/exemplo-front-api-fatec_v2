@@ -30,8 +30,8 @@ const Userl = () => {
     }
 
     return (
-        <Flex w="100%" flexDir="column">
-            <Box>
+        <Flex  w="100%" flexDir="column">
+            <Box mt={50}>
                 <Center>
                     <Card><CardBody>
                         <Flex margin={5}>

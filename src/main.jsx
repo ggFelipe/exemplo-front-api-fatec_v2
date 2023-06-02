@@ -9,7 +9,7 @@ import Sobre from './pages/sobre'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import CreateUser from './pages/create'
 import Login from './pages/login'
-import Treinos from './pages/training'
+import Aulas from './pages/aulas'
 import UpdateUser from './pages/update'
 import BannerA from './pages/components/BannerAcademia'
 
@@ -19,8 +19,8 @@ const router = createBrowserRouter([
     element: <><HomeHeader /><Login /></>,
   },
   {
-    path: "/home",
-    element: <><HomeHeader /><BannerA/><Userl /></>,
+    path: "/aulas",
+    element: <><HomeHeader /><Aulas /></>,
   },
   {
     path: "/user",
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/sobre",
     element: <><HomeHeader /><Sobre /></>,
+  },
+  {
+    path: "/userl",
+    element: <><HomeHeader /><Userl /></>,
   },
 ]);
 

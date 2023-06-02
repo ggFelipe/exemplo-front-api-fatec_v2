@@ -6,7 +6,7 @@ import {
     FormControl, Button, Link, Text
 } from "@chakra-ui/react"
 
-const Treinos = () => {
+const Aulas = () => {
     return (
         <Box mt={50}>
             <HStack spacing='50' justify="center">
@@ -177,4 +177,4 @@ const Treinos = () => {
         </Box>
     )
 }
-export default Treinos
+export default Aulas
