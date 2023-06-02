@@ -38,7 +38,7 @@ const Userl = () => {
                             <Box fontStyle="revert" >LISTA DE USUÁRIOS</Box>
                             <Spacer />
                             <Box>
-                                <Link to='/create'><IconButton top="auto" icon={<AddIcon />} colorScheme="green" size="sm"></IconButton></Link>
+                                <Link to='/user'><IconButton top="auto" icon={<AddIcon />} colorScheme="green" size="sm"></IconButton></Link>
                             </Box>
                         </Flex>
                         <Divider borderColor="black" />
