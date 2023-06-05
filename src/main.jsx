@@ -11,20 +11,32 @@ import CreateUser from './pages/create'
 import Login from './pages/login'
 import Aulas from './pages/aulas'
 import UpdateUser from './pages/update'
+import UpdateAula from './pages/updateAulas'
 import BannerA from './pages/components/BannerAcademia'
+import Smallfooter from './pages/components/Footer'
+import Tableu from './pages/tableR'
+
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <><HomeHeader /><Login /></>,
+    element: <><HomeHeader /><Login /><Smallfooter/></>,
+  },
+  {
+    path: "/user",
+    element: <><HomeHeader /><CreateUser /></>,
   },
   {
     path: "/aulas",
     element: <><HomeHeader /><Aulas /></>,
   },
   {
-    path: "/user",
-    element: <><HomeHeader /><CreateUser /></>,
+    path: "/editA/:id",
+    element: <><HomeHeader /><UpdateAula /></>,
+  },
+  {
+    path: "/tableu/:id",
+    element: <><HomeHeader /><Tableu /></>,
   },
   {
     path: "/edit/:id",

@@ -1,6 +1,6 @@
-import { Button, Flex, IconButton, Link, Switch, useColorMode, Image, Icon, Box, Grid } from '@chakra-ui/react'
+import { Button, Flex, IconButton, Link, Switch, useColorMode, Image, Box, Grid } from '@chakra-ui/react'
 import { HamburgerIcon, SunIcon, MoonIcon } from "@chakra-ui/icons"
-import { Header } from "./Header"
+
 
 
 const HomeHeader= () => {

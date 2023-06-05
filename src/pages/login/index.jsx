@@ -31,11 +31,11 @@ const Login = () => {
                                     <FormControl>
                                         <HStack justify="space-between">
                                             <FormLabel textColor='black' size='sm'>Senha</FormLabel>
-                                            <Button as='a' href="#" variant='link' size='sx' color='#0969da' fontWeight='500'>Esqueceu a senha?</Button>
+                                            <Button href="#" variant='link' size='sx' color='#0969da' fontWeight='500'>Esqueceu a senha?</Button>
                                         </HStack>
                                         <Input textColor='black' id="senha" type="text" bg='white' borderColor='#d8dee4' size='sm' borderRadius='6px' />
                                     </FormControl>
-                                    <Button bg='#2da44e' color='white' size='sm' _hover={{ bg: '#2c974b' }} _active={{ bg: '#298e46' }}>Logar</Button>
+                                    <Button bg='#2da44e' color='white' size='sm' _hover={{ bg: '#2c974b' }} _active={{ bg: '#298e46' }}><Link to='/userl'>Logar</Link></Button>
                                 </Stack>
                             </form>
                         </CardBody>

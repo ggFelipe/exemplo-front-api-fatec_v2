@@ -29,36 +29,36 @@ const CreateUser = () => {
         <Container>
             <Stack spacing='4'>
                 <VStack as='header' spacing='6' mt='8'>
-                    <Heading fontWeight="300" fontSize="24px" letterSpacing='-0.5px'>Cadastrar Usuário</Heading>
+                    <Heading fontWeight="300" fontSize="18px" letterSpacing='-0.5px'>Cadastrar Usuário</Heading>
                 </VStack>
-                <Card bg='#f6f8fa' variante='outline' borderColor='#d8dee4'><CardBody>
+                <Card  variante='outline' ><CardBody>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <Stack>
                             <FormControl id="nome">
-                                <FormLabel textColor='black'>Nome</FormLabel>
-                                <Input type="text" textColor='black' bg='white' borderColor='#d8dee4' {...register('nome', { required: true })} />
+                                <FormLabel >Nome</FormLabel>
+                                <Input type="text" textColor='black' bg='white' size='sm' borderColor='#d8dee4' {...register('nome', { required: true })} />
                             </FormControl>
                             <FormControl id="cpf">
-                                <FormLabel textColor='black'>CPF</FormLabel>
-                                <Input type="text" textColor='black' bg='white' borderColor='#d8dee4' {...register('cpf', { required: true })} />
+                                <FormLabel >CPF</FormLabel>
+                                <Input type="text" textColor='black' bg='white' size='sm' borderColor='#d8dee4' {...register('cpf', { required: true })} />
                             </FormControl>
                             <FormControl id="endereco">
-                                <FormLabel textColor='black'>Endereço</FormLabel>
-                                <Input type="text" textColor='black' bg='white' borderColor='#d8dee4' {...register('endereco', { required: true })} />
+                                <FormLabel >Endereço</FormLabel>
+                                <Input type="text" textColor='black' bg='white' size='sm' borderColor='#d8dee4' {...register('endereco', { required: true })} />
                             </FormControl>
                             <FormControl id="telefone">
-                                <FormLabel textColor='black'>Telefone</FormLabel>
-                                <Input type="text" textColor='black' bg='white' borderColor='#d8dee4' {...register('telefone', { required: true })} />
+                                <FormLabel >Telefone</FormLabel>
+                                <Input type="text" textColor='black' bg='white' size='sm' borderColor='#d8dee4' {...register('telefone', { required: true })} />
                             </FormControl>
                             <FormControl id="mensalidade">
-                                <FormLabel textColor='black'>Mensalidade</FormLabel>
-                                <Input type="number" textColor='black' bg='white' borderColor='#d8dee4' {...register('mensalidade', { required: true })} />
+                                <FormLabel >Mensalidade</FormLabel>
+                                <Input type="number" textColor='black' bg='white' size='sm' borderColor='#d8dee4' {...register('mensalidade', { required: true })} />
                             </FormControl>
 
-                            <Button mt={4} colorScheme='teal' type="submit" isLoading={isLoading}>
+                            <Button mt={4} bg='#2da44e' color='white' size='sm' _hover={{ bg: '#2c974b' }} _active={{ bg: '#298e46' }} type="submit" isLoading={isLoading}>
                                 Cadastrar
                             </Button>
-                            <Button mt={4} colorScheme='red' type="button" onClick={() => reset()}>
+                            <Button mt={4} colorScheme='red' size='sm' type="button" onClick={() => reset()}>
                                 Limpar campos
                             </Button>
                         </Stack>
