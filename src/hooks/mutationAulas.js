@@ -49,7 +49,7 @@ const deleteAula = async (id) => {
 }
 
 export const useDeleteAula = () => {
-    return useMutation(deleteUser, {
+    return useMutation(deleteAula, {
         onError: (error) => {
             console.log(error)
         }

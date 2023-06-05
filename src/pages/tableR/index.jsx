@@ -13,6 +13,12 @@ import { useAula } from "../../hooks/useAulas";
 import { useUpdateAula } from "../../hooks/mutationAulas";
 
 const Tableu = () => {
+    const {
+        reset,
+        register,
+        handleSubmit
+    } = useForm()
+    
     const { users, isLoading, isError, error } = useUsers()
     const { mutate: mutateCreateTable, isLoadingt, isErrort } = useCreateTable()
 
@@ -20,11 +26,7 @@ const Tableu = () => {
 
     const { usera, isLoadinga } = useAula(id)
 
-    const {
-        reset,
-        register,
-        handleSubmit
-    } = useForm()
+    
 
     const { mutate: mutateUpdateAula, isLoadinga: isLoadingUpdate, isErrora } = useUpdateAula()
 
@@ -37,8 +39,8 @@ const Tableu = () => {
         }
     }
 
-    const onSubmitt = (data) => {
-        mutateCreateTable(data)
+    const onSubmitt = (table) => {
+        mutateCreateTable(table)
         if (!isErrort) {
             reset()
             alert('Relação cadastrado com sucesso!')
@@ -135,22 +137,23 @@ const Tableu = () => {
                                                     <Td>{user.telefone}</Td>
                                                     <Td isNumeric>{user.mensalidade}</Td>
                                                     <Td>
-                                                        <Spacer />
+                            
+                                                        
                                                         <form onSubmit={handleSubmit(onSubmitt)}>
-                                                        <FormControl>
-                                                            <VisuallyHiddenInput defaultValue={users.id} {...register('IdCliente', { required: true })} />
+                                                        <Stack>
+                                                        <FormControl id="IdCliente">
+                                                            <VisuallyHiddenInput type='number' value={user.id} {...register('IdCliente', { required: true })} />
                                                         </FormControl>
-                                                        <FormControl>
-                                                            <VisuallyHiddenInput defaultValue={"teste"} {...register('nomeAula_Participantes', { required: true })} />
-                                                        </FormControl>
-                                                        <FormControl>
-                                                            <VisuallyHiddenInput defaultValue={id} {...register('IdAula', { required: true })} />
+                                                        <FormControl id="IdAula">
+                                                            <VisuallyHiddenInput type='number' value={id} {...register('IdAula', { required: true })} />
                                                         </FormControl>
                                                     
                                                         <Button  type="submit" colorScheme="red" size="sm" isLoading={isLoadingt}>
                                                         +
                                                         </Button>
-                                                    </form>
+                                                        </Stack>
+                                                        </form>
+                                                    
                                                     </Td>
 
                                                 </Tr>
