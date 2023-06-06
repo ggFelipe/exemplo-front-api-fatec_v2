@@ -16,13 +16,13 @@ const Aulas = () => {
     } = useForm()
 
     const { mutate: mutateCreateAula, isLoadinga, isError } = useCreateAula()
-    const { users, error, refetch } = useAulas()
-    const segunda = users?.filter(Aulas => Aulas.data === 'segunda')
-    const terça = users?.filter(Aulas => Aulas.data === 'terça')
-    const quarta = users?.filter(Aulas => Aulas.data === 'quarta')
-    const quinta = users?.filter(Aulas => Aulas.data === 'quinta')
-    const sexta = users?.filter(Aulas => Aulas.data === 'sexta')
-    const sabado = users?.filter(Aulas => Aulas.data === 'sabado')
+    const { usersa, error, refetch } = useAulas()
+    const segunda = usersa?.filter(Aulas => Aulas.data === 'segunda')
+    const terça = usersa?.filter(Aulas => Aulas.data === 'terça')
+    const quarta = usersa?.filter(Aulas => Aulas.data === 'quarta')
+    const quinta = usersa?.filter(Aulas => Aulas.data === 'quinta')
+    const sexta = usersa?.filter(Aulas => Aulas.data === 'sexta')
+    const sabado = usersa?.filter(Aulas => Aulas.data === 'sabado')
 
     const onSubmit = (data) => {
         mutateCreateAula(data)
@@ -101,7 +101,7 @@ const Aulas = () => {
                                             {segunda?.map((user) => (
 
                                                 <Tr >
-                                                    <Td textAlign='center'><Link href={`/editA/${user.id}`}>
+                                                    <Td textAlign='center'><Link href={`/tableu/${user.id}`}>
                                                         {user.nomeAula}
                                                     </Link></Td>
                                                     <Td textAlign='center'>{user.hora}</Td>

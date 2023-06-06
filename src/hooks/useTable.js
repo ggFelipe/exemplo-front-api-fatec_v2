@@ -6,12 +6,12 @@ const fetchTables = async () => {
 }
 
 export const useTables = () => {
-  const { data, error, isLoadingt } = useQuery(["tables"], fetchTables)
+  const { data, errort, isLoadingt } = useQuery(["tables"], fetchTables)
 
   return {
     tables: data,
     isLoadingt,
-    error,
+    errort,
   }
 }
 
@@ -21,11 +21,11 @@ const fetchTable = async (id) => {
 }
 
 export const useTable = (id) => {
-  const { data, error, isLoadingt } = useQuery(["table", id], () => fetchTable(id))
+  const { data, errort, isLoadingt } = useQuery(["table", id], () => fetchTable(id))
 
   return {
     table: data,
     isLoadingt,
-    error,
+    errort,
   }
 }

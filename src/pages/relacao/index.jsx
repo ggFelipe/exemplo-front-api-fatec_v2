@@ -1,78 +1,86 @@
-import { Flex, Box, Center, Card, CardBody } from "@chakra-ui/react"
+import {
+    Flex, Box, Center, Card, CardBody, Divider, TableContainer,
+    Table, Thead, Tr, Th, Td, Tbody, Spacer, IconButton, Link
+} from "@chakra-ui/react"
+import { DeleteIcon } from "@chakra-ui/icons"
+import { useParams } from 'react-router-dom';
+import { useTables } from "../../hooks/useTable"
+import { useDeleteTable } from "../../hooks/mutationTable"
+import { useUsers } from "../../hooks/useUsers"
+import { useAulas } from "../../hooks/useAulas"
 
 const Relacao = () => {
-    const { users, isLoading, isError, error, refetch } = useUsers()
-    const { mutate: mutateDeleteUser, isLoading: isLoadingDelete, isError: isErrorDelete } = useDeleteUser()
 
-    const onDeleteUser = (id) => {
-        mutateDeleteUser(id)
+    const { id } = useParams()
+
+    const { tables, isLoadingt, isErrort, errort, refetcht } = useTables()
+    const { mutate: mutateDeleteTable, isLoading: isLoadingDelete, isError: isErrorDelete } = useDeleteTable()
+    
+    const tabelaid = tables?.filter(Tables => Tables.IdAula == id)
+
+    const onDeleteTable = (id) => {
+        mutateDeleteTable(id)
         if (isErrorDelete) {
-            alert('Erro ao excluir usuário!')
+            alert('Erro ao excluir Relação!')
         } else {
-            alert('Usuário excluído com sucesso!')
-            refetch()
+            alert('Relação excluída com sucesso!')
+            refetcht()
         }
     }
 
     return (
+
         <Flex w="100%" flexDir="column">
             <Box spacing='50' justify="center">
                 <Center>
-                    <Flex margin={5}>
-                        <Card><CardBody>
-                            <Box fontStyle="revert" >LISTA DE ALUNOS</Box>
-                        </CardBody></Card>
-                    </Flex>
-                    <Divider borderColor="gray" />
-                    {isLoading && <p>Carregando...</p>}
-                    {isError && <p>{error.message}</p>}
-                    <ul>
-                        <TableContainer>
-                            <Table colorScheme='' variant="striped" size='sm'>
+                    <Card><CardBody>
+                        <Flex margin={1}>
 
-                                <Thead>
-                                    <Tr>
-                                        <Th>Nome</Th>
-                                        <Th>CPF</Th>
-                                        <Th>Endereço</Th>
-                                        <Th>Telefone</Th>
-                                        <Th isNumeric>Mensalidade</Th>
-                                        <Th>  </Th>
-                                    </Tr>
-                                </Thead>
-                                <Tbody>
-                                    {users?.map((user) => (
+                            <Box fontSize='13' fontStyle="revert" >LISTA DE ALUNOS</Box>
+
+                        </Flex>
+                        <Divider borderColor="gray" />
+                        {isLoadingt && <p>Carregando...</p>}
+                        {isErrort && <p>{errort.message}</p>}
+                        <ul>
+                            <TableContainer overflowY='auto' maxHeight="70px">
+                                
+                                <Table  colorScheme='' variant="striped" size='sm'>
+
+                                    <Thead>
                                         <Tr>
-                                            <Td>{user.nome}</Td>
-                                            <Td>{user.cpf}</Td>
-                                            <Td>{user.endereco}</Td>
-                                            <Td>{user.telefone}</Td>
-                                            <Td isNumeric>{user.mensalidade}</Td>
-                                            <Td><Flex >
-
-                                                <Spacer />
-                                                <IconButton icon={<DeleteIcon />} colorScheme="red" size="sm" isLoading={isLoadingDelete} onClick={() => {
-                                                    if (window.confirm('Deseja excluir o usuário?')) {
-                                                        onDeleteUser(user.id)
-                                                    }
-                                                }}>
-                                                </IconButton>
-                                                <Link to={`/edit/${user.id}`}>
-                                                    <IconButton icon={<EditIcon />} size="sm">
-                                                    </IconButton>
-                                                </Link>
-
-                                            </Flex></Td>
+                                            <Th fontSize='10' isNumeric>IdAula</Th>
+                                            <Th fontSize='10' isNumeric>IdCliente</Th>
+                                            <Th>  </Th>
                                         </Tr>
-                                    ))}
-                                </Tbody>
-                            </Table>
-                        </TableContainer>
-                    </ul>
+                                    </Thead>
+                                    <Tbody>
+                                        {tabelaid?.map((table) => (
+                                            <Tr>
+                                                <Td fontSize='10' isNumeric>{table.IdAula}</Td>
+                                                <Td fontSize='10' isNumeric><Link href={`/edit/${table.IdCliente}`}>
+                                                {table.IdCliente}
+                                                    </Link></Td>
+                                                <Td><Flex >
+
+                                                    <Spacer />
+                                                    <IconButton icon={<DeleteIcon />} colorScheme="red" size='xs' isLoading={isLoadingDelete} onClick={() => {
+                                                        if (window.confirm('Deseja excluir o usuário?')) {
+                                                            onDeleteTable(table.id)
+                                                        }
+                                                    }}>
+                                                    </IconButton>
+                                                </Flex></Td>
+                                            </Tr>
+                                        ))}
+                                    </Tbody>
+                                </Table>
+                            </TableContainer>
+                        </ul>
+                    </CardBody></Card>
                 </Center>
             </Box>
         </Flex>
     )
-
-
 }
+export default Relacao

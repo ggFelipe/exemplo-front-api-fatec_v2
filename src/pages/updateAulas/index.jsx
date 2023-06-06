@@ -37,20 +37,20 @@ const UpdateAula = () => {
                 <VStack as='header' spacing='6' mt='8'>
                     <Heading fontWeight="300" fontSize="24px" letterSpacing='-0.5px'>Atualizar informaçoes da Aula</Heading>
                 </VStack>
-                <Card bg='#F0FFF0' variante='outline' borderColor='#d8dee4'><CardBody><Stack>
+                <Card variante='outline' borderColor='#d8dee4'><CardBody><Stack>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {isLoadinga || !usera ? <p>Carregando...</p> : <Stack>
                             <FormControl id="nomeAula">
-                                <FormLabel textColor='black'>Aula</FormLabel>
+                                <FormLabel >Aula</FormLabel>
                                 <Input defaultValue={usera.nomeAula} type="text" textColor='black' bg='white' borderColor='#d8dee4' {...register('nomeAula', { required: true })} />
                             </FormControl>
                             <FormControl id="descricao">
-                                <FormLabel textColor='black'>Descrição</FormLabel>
+                                <FormLabel >Descrição</FormLabel>
                                 <Input defaultValue={usera.descricao} type="text" textColor='black' bg='white' borderColor='#d8dee4' {...register('descricao', { required: true })} />
                             </FormControl>
                             <FormControl id="data">
-                                <FormLabel textColor='black'>Data</FormLabel>
+                                <FormLabel>Data</FormLabel>
                                 <Select type="text" textColor='black' bg='white' borderColor='#d8dee4' {...register('data', { required: true })}>
                                     <option>segunda</option>
                                     <option>terça</option>
@@ -61,11 +61,11 @@ const UpdateAula = () => {
                                 </Select>
                             </FormControl>
                             <FormControl id="hora">
-                                <FormLabel textColor='black'>Telefone</FormLabel>
+                                <FormLabel>Telefone</FormLabel>
                                 <Input defaultValue={usera.hora} type="time" textColor='black' bg='white' borderColor='#d8dee4' {...register('hora', { required: true })} />
                             </FormControl>
                             <FormControl id="limiteAlunos">
-                                <FormLabel textColor='black'>Limite de Alunos</FormLabel>
+                                <FormLabel>Limite de Alunos</FormLabel>
                                 <Input defaultValue={usera.limiteAlunos} type="number" textColor='black' bg='white' borderColor='#d8dee4' {...register('limiteAlunos', { required: true })} />
                             </FormControl>
 

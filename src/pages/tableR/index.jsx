@@ -11,22 +11,24 @@ import { useForm } from 'react-hook-form'
 import { useParams } from 'react-router-dom';
 import { useAula } from "../../hooks/useAulas";
 import { useUpdateAula } from "../../hooks/mutationAulas";
+import Relacao from "../relacao"
 
 const Tableu = () => {
+    
+    
+    
     const {
         reset,
         register,
         handleSubmit
     } = useForm()
-    
+
     const { users, isLoading, isError, error } = useUsers()
     const { mutate: mutateCreateTable, isLoadingt, isErrort } = useCreateTable()
 
     const { id } = useParams()
 
     const { usera, isLoadinga } = useAula(id)
-
-    
 
     const { mutate: mutateUpdateAula, isLoadinga: isLoadingUpdate, isErrora } = useUpdateAula()
 
@@ -47,8 +49,14 @@ const Tableu = () => {
         }
     }
 
+    function salvarDado(valor) {
+        // Atribuir o valor à variável global
+        idu = valor;
+      }
+
     return (
         <Flex w="100%" flexDir="column">
+
             <Box spacing='50' justify="center">
                 <HStack spacing='50' justify="center">
 
@@ -58,20 +66,20 @@ const Tableu = () => {
                             <VStack as='header' spacing='6' mt='8'>
                                 <Heading fontWeight="300" fontSize="24px" letterSpacing='-0.5px'>Atualizar informaçoes da Aula</Heading>
                             </VStack>
-                            <Card bg='#F0FFF0' variante='outline' borderColor='#d8dee4'><CardBody><Stack>
+                            <Card variante='outline' borderColor='#d8dee4'><CardBody><Stack>
 
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     {isLoadinga || !usera ? <p>Carregando...</p> : <Stack>
                                         <FormControl id="nomeAula">
-                                            <FormLabel textColor='black'>Aula</FormLabel>
+                                            <FormLabel>Aula</FormLabel>
                                             <Input defaultValue={usera.nomeAula} type="text" textColor='black' bg='white' borderColor='#d8dee4' {...register('nomeAula', { required: true })} />
                                         </FormControl>
                                         <FormControl id="descricao">
-                                            <FormLabel textColor='black'>Descrição</FormLabel>
+                                            <FormLabel>Descrição</FormLabel>
                                             <Input defaultValue={usera.descricao} type="text" textColor='black' bg='white' borderColor='#d8dee4' {...register('descricao', { required: true })} />
                                         </FormControl>
                                         <FormControl id="data">
-                                            <FormLabel textColor='black'>Data</FormLabel>
+                                            <FormLabel>Data</FormLabel>
                                             <Select type="text" textColor='black' bg='white' borderColor='#d8dee4' {...register('data', { required: true })}>
                                                 <option>segunda</option>
                                                 <option>terça</option>
@@ -82,11 +90,11 @@ const Tableu = () => {
                                             </Select>
                                         </FormControl>
                                         <FormControl id="hora">
-                                            <FormLabel textColor='black'>Telefone</FormLabel>
+                                            <FormLabel >Telefone</FormLabel>
                                             <Input defaultValue={usera.hora} type="time" textColor='black' bg='white' borderColor='#d8dee4' {...register('hora', { required: true })} />
                                         </FormControl>
                                         <FormControl id="limiteAlunos">
-                                            <FormLabel textColor='black'>Limite de Alunos</FormLabel>
+                                            <FormLabel>Limite de Alunos</FormLabel>
                                             <Input defaultValue={usera.limiteAlunos} type="number" textColor='black' bg='white' borderColor='#d8dee4' {...register('limiteAlunos', { required: true })} />
                                         </FormControl>
 
@@ -99,71 +107,82 @@ const Tableu = () => {
                         </Stack>
 
                     </Center>
+                    <VStack align='baseline'>
+                        <Center>
+                            <Relacao />
+                        </Center>
+                        <Center>
+                            <Card><CardBody>
+                                <Flex margin={5}>
+                                    <Box fontStyle="revert" >LISTA DE USUÁRIOS</Box>
+                                    <Spacer />
+                                    <Box>
+                                        <Link to='/user'><IconButton top="auto" icon={<AddIcon />} colorScheme="green" size="sm"></IconButton></Link>
+                                    </Box>
+                                </Flex>
+                                <Divider borderColor="gray" />
+                                {isLoading && <p>Carregando...</p>}
+                                {isError && <p>{error.message}</p>}
+                                <ul>
+                                    <TableContainer>
+                                        <Table colorScheme='' variant="striped" size='sm'>
 
-                    <Center>
-                        <Card><CardBody>
-                            <Flex margin={5}>
-                                <Box fontStyle="revert" >LISTA DE USUÁRIOS</Box>
-                                <Spacer />
-                                <Box>
-                                    <Link to='/user'><IconButton top="auto" icon={<AddIcon />} colorScheme="green" size="sm"></IconButton></Link>
-                                </Box>
-                            </Flex>
-                            <Divider borderColor="gray" />
-                            {isLoading && <p>Carregando...</p>}
-                            {isError && <p>{error.message}</p>}
-                            <ul>
-                                <TableContainer>
-                                    <Table colorScheme='' variant="striped" size='sm'>
-
-                                        <Thead>
-                                            <Tr>
-                                                <Th>Nome</Th>
-                                                <Th>CPF</Th>
-                                                <Th>Endereço</Th>
-                                                <Th>Telefone</Th>
-                                                <Th isNumeric>Mensalidade</Th>
-                                                <Th>  </Th>
-                                            </Tr>
-                                        </Thead>
-                                        <Tbody>
-                                            {users?.map((user) => (
-
+                                            <Thead>
                                                 <Tr>
-                                                    
-                                                    <Td>{user.nome}</Td>
-                                                    <Td>{user.cpf}</Td>
-                                                    <Td>{user.endereco}</Td>
-                                                    <Td>{user.telefone}</Td>
-                                                    <Td isNumeric>{user.mensalidade}</Td>
-                                                    <Td>
-                            
-                                                        
-                                                        <form onSubmit={handleSubmit(onSubmitt)}>
-                                                        <Stack>
-                                                        <FormControl id="IdCliente">
-                                                            <VisuallyHiddenInput type='number' value={user.id} {...register('IdCliente', { required: true })} />
-                                                        </FormControl>
-                                                        <FormControl id="IdAula">
-                                                            <VisuallyHiddenInput type='number' value={id} {...register('IdAula', { required: true })} />
-                                                        </FormControl>
-                                                    
-                                                        <Button  type="submit" colorScheme="red" size="sm" isLoading={isLoadingt}>
-                                                        +
-                                                        </Button>
-                                                        </Stack>
-                                                        </form>
-                                                    
-                                                    </Td>
-
+                                                    <Th>ID</Th>
+                                                    <Th>Nome</Th>
+                                                    <Th>CPF</Th>
+                                                    <Th>Endereço</Th>
+                                                    <Th>Telefone</Th>
+                                                    <Th isNumeric>Mensalidade</Th>
+                                                    <Th>  </Th>
                                                 </Tr>
-                                            ))}
-                                        </Tbody>
-                                    </Table>
-                                </TableContainer>
-                            </ul>
-                        </CardBody></Card>
-                    </Center>
+                                            </Thead>
+                                            <Tbody>
+                                                {users?.map((user) => (
+                                                   
+                                                   
+                                                    <Tr>
+                                                        
+                                                        <Td >{user.id}</Td>
+                                                        <Td>{user.nome}</Td>
+                                                        <Td>{user.cpf}</Td>
+                                                        <Td>{user.endereco}</Td>
+                                                        <Td>{user.telefone}</Td>
+                                                        <Td isNumeric>{user.mensalidade}</Td>
+                                                        <Td>
+
+
+                                                            <form onSubmit={handleSubmit(onSubmitt)}>
+
+                                                               
+                                                                    <FormControl id="IdAula">
+                                                                        <VisuallyHiddenInput type='number' value={id} {...register('IdAula', { required: true })} />
+                                                                    </FormControl>
+                                                                    <FormControl id="IdCliente">
+                                                                        <VisuallyHiddenInput type='number' value={user.id} {...register('IdCliente', { required: true })} />
+                                                                    </FormControl>
+
+                                                                    <Button type="submit" colorScheme="red" size="sm" isLoading={isLoadingt}>
+                                                                        +
+                                                                    </Button>
+
+                                                                
+
+                                                            </form>
+
+                                                        </Td>
+
+                                                    </Tr>
+                                    
+                                                    ))}
+                                            </Tbody>
+                                        </Table>
+                                    </TableContainer>
+                                </ul>
+                            </CardBody></Card>
+                        </Center>
+                    </VStack>
                 </HStack>
             </Box>
         </Flex>

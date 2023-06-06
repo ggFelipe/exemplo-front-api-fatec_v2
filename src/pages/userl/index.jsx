@@ -5,11 +5,11 @@ import {
     Thead,
     Tbody,
     Tr,
-    Th,
-    Td,
-    TableContainer, Flex, Spacer, Divider, IconButton, Center, Card, CardBody, HStack
+    Th, Icon, Text,
+    Td, Button,
+    TableContainer, Flex, Spacer, Divider, IconButton, Center, Card, CardBody, HStack, VStack
 } from '@chakra-ui/react'
-import { DeleteIcon, EditIcon, AddIcon } from "@chakra-ui/icons"
+import { DeleteIcon, EditIcon, AddIcon, CalendarIcon } from "@chakra-ui/icons"
 import { Link } from "react-router-dom"
 import { useDeleteUser } from "../../hooks/mutationUser"
 
@@ -34,6 +34,10 @@ const Userl = () => {
                 <HStack spacing='50' justify="center">
                     <Center>
                     <CreateUser/>
+                    </Center>
+                    <VStack align='baseline'>
+                    <Center>
+                    <Link to='/Aulas'><Button colorScheme="green"  h='50px' w='13'><VStack spacing='0'>{<CalendarIcon />}<Text>Aulas</Text></VStack></Button></Link>
                     </Center>
                     <Center>
                         <Card><CardBody>
@@ -64,11 +68,11 @@ const Userl = () => {
                                         <Tbody>
                                             {users?.map((user) => (
                                                 <Tr>
-                                                    <Td>{user.nome}</Td>
-                                                    <Td>{user.cpf}</Td>
-                                                    <Td>{user.endereco}</Td>
-                                                    <Td>{user.telefone}</Td>
-                                                    <Td isNumeric>{user.mensalidade}</Td>
+                                                    <Td textAlign='center'>{user.nome}</Td>
+                                                    <Td textAlign='center'>{user.cpf}</Td>
+                                                    <Td textAlign='center'>{user.endereco}</Td>
+                                                    <Td textAlign='center'>{user.telefone}</Td>
+                                                    <Td textAlign='center' isNumeric>{user.mensalidade}</Td>
                                                     <Td><Flex >
 
                                                         <Spacer />
@@ -92,6 +96,7 @@ const Userl = () => {
                             </ul>
                         </CardBody></Card>
                     </Center>
+                    </VStack>
                 </HStack>
             </Box>
         </Flex>

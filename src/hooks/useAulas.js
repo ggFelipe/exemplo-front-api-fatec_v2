@@ -9,7 +9,7 @@ export const useAulas = () => {
   const { data, error, isLoadinga } = useQuery(["users"], fetchAulas)
 
   return {
-    users: data,
+    usersa: data,
     isLoadinga,
     error,
   }
