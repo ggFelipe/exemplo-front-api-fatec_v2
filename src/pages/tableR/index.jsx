@@ -49,11 +49,6 @@ const Tableu = () => {
         }
     }
 
-    function salvarDado(valor) {
-        // Atribuir o valor à variável global
-        idu = valor;
-      }
-
     return (
         <Flex w="100%" flexDir="column">
 

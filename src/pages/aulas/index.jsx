@@ -101,7 +101,7 @@ const Aulas = () => {
                                             {segunda?.map((user) => (
 
                                                 <Tr >
-                                                    <Td textAlign='center'><Link href={`/tableu/${user.id}`}>
+                                                    <Td textAlign='center'><Link to={`/tableu/${user.id}`}>
                                                         {user.nomeAula}
                                                     </Link></Td>
                                                     <Td textAlign='center'>{user.hora}</Td>
