@@ -82,9 +82,9 @@ const Userl = () => {
                                                             }
                                                         }}>
                                                         </IconButton>
+
                                                         <Link to={`/edit/${user.id}`}>
-                                                            <IconButton icon={<EditIcon />} size="sm">
-                                                            </IconButton>
+                                                            <IconButton icon={<EditIcon />} size="sm"></IconButton>
                                                         </Link>
 
                                                     </Flex></Td>

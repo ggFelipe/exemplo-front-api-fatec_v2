@@ -3,9 +3,10 @@ import {
     SimpleGrid, Stack, Input,
     TableContainer, Table, Thead, Tbody,
     Tr, Th, Td, Center, HStack, VStack, Heading,
-    FormControl, Button, Link, Text, Select
+    FormControl, Button, Text, Select
 } from "@chakra-ui/react"
 import { useForm } from 'react-hook-form'
+import { Link } from "react-router-dom"
 import { useCreateAula } from "../../hooks/mutationAulas"
 import { useAulas } from "../../hooks/useAulas"
 const Aulas = () => {
@@ -100,10 +101,10 @@ const Aulas = () => {
                                         <Tbody fontSize='12'>
                                             {segunda?.map((user) => (
 
-                                                <Tr >
-                                                    <Td textAlign='center'><Link href={`/tableu/${user.id}`}>
-                                                        {user.nomeAula}
-                                                    </Link></Td>
+                                                <Tr>
+                                                    <Td textAlign='center'>
+                                                        <Link to={`/tableu/${user.id}`}>{user.nomeAula}</Link>
+                                                    </Td>
                                                     <Td textAlign='center'>{user.hora}</Td>
                                                     <Td textAlign='center'>{user.limiteAlunos}</Td>
                                                 </Tr>
