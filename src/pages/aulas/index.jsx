@@ -95,7 +95,7 @@ const Aulas = () => {
                                             <Tr fontSize='10'>
                                                 <Th textAlign='center'>Aula</Th>
                                                 <Th textAlign='center'>Hora</Th>
-                                                <Th textAlign='center'>Estado</Th>
+                                                <Th textAlign='center'>Limite</Th>
                                             </Tr>
                                         </Thead>
                                         <Tbody fontSize='12'>
@@ -126,7 +126,7 @@ const Aulas = () => {
                                             <Tr fontSize='10'>
                                                 <Th textAlign='center'>Aula</Th>
                                                 <Th textAlign='center'>Hora</Th>
-                                                <Th textAlign='center'>Estado</Th>
+                                                <Th textAlign='center'>Limite</Th>
                                             </Tr>
                                         </Thead>
                                         <Tbody fontSize='12'>
@@ -157,7 +157,7 @@ const Aulas = () => {
                                             <Tr fontSize='10' >
                                                 <Th textAlign='center'>Aula</Th>
                                                 <Th textAlign='center'>Hora</Th>
-                                                <Th textAlign='center'>Estado</Th>
+                                                <Th textAlign='center'>Limite</Th>
                                             </Tr>
                                         </Thead>
                                         <Tbody fontSize='12'>
@@ -188,7 +188,7 @@ const Aulas = () => {
                                             <Tr fontSize='10'>
                                                 <Th textAlign='center'>Aula</Th>
                                                 <Th textAlign='center'>Hora</Th>
-                                                <Th textAlign='center'>Estado</Th>
+                                                <Th textAlign='center'>Limite</Th>
                                             </Tr>
                                         </Thead>
                                         <Tbody fontSize='12'>
@@ -219,7 +219,7 @@ const Aulas = () => {
                                             <Tr fontSize='10'>
                                                 <Th textAlign='center'>Aula</Th>
                                                 <Th textAlign='center'>Hora</Th>
-                                                <Th textAlign='center'>Estado</Th>
+                                                <Th textAlign='center'>Limite</Th>
                                             </Tr>
                                         </Thead>
                                         <Tbody fontSize='12'>
@@ -250,7 +250,7 @@ const Aulas = () => {
                                             <Tr fontSize='10'>
                                                 <Th textAlign='center'>Aula</Th>
                                                 <Th textAlign='center'>Hora</Th>
-                                                <Th textAlign='center'>Estado</Th>
+                                                <Th textAlign='center'>Limite</Th>
                                             </Tr>
                                         </Thead>
                                         <Tbody fontSize='12'>
