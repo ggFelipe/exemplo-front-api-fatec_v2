@@ -15,7 +15,7 @@ import Relacao from "../relacao"
 
 const Tableu = () => {
     
-    
+    const { id } = useParams()
     
     const {
         reset,
@@ -26,7 +26,7 @@ const Tableu = () => {
     const { users, isLoading, isError, error } = useUsers()
     const { mutate: mutateCreateTable, isLoadingt, isErrort } = useCreateTable()
 
-    const { id } = useParams()
+    
 
     const { usera, isLoadinga } = useAula(id)
 
@@ -139,11 +139,8 @@ const Tableu = () => {
                                                 </Tr>
                                             </Thead>
                                             <Tbody>
-                                                {users?.map((user) => (
-                                                   
-                                                   
-                                                    <Tr>
-                                                        
+                                                {users?.map((user) => (                                                  
+                                                    <Tr>                                                       
                                                         <Td >{user.id}</Td>
                                                         <Td>{user.nome}</Td>
                                                         <Td>{user.cpf}</Td>
@@ -151,11 +148,8 @@ const Tableu = () => {
                                                         <Td>{user.telefone}</Td>
                                                         <Td isNumeric>{user.mensalidade}</Td>
                                                         <Td>
-
-
                                                             <form onSubmit={handleSubmit(onSubmitt)}>
-
-                                                               
+                                                            {isLoading || !user ? <p>Carregando...</p> : <Stack>                                                           
                                                                     <FormControl id="IdAula">
                                                                         <VisuallyHiddenInput type='number' value={id} {...register('IdAula', { required: true })} />
                                                                     </FormControl>
@@ -166,9 +160,7 @@ const Tableu = () => {
                                                                     <Button type="submit" colorScheme="red" size="sm" isLoading={isLoadingt}>
                                                                         +
                                                                     </Button>
-
-                                                                
-
+                                                                    </Stack>}                                                               
                                                             </form>
 
                                                         </Td>
